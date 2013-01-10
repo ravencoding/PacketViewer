@@ -1,2 +1,4 @@
 # WebStorm/PacketViewer/.gitignore
-*.idea/
+/.idea/
+
+.DS_Store
