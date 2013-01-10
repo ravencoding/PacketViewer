@@ -23,12 +23,13 @@
 <p>宛先IPアドレス(32) => <Nobr id="10"></Nobr> => <Nobr id="destip"></Nobr></p>
 <p>オプション(32 × n) => <Nobr id="11"></Nobr></p>
 <p>データ本体 => <Nobr id="12"></Nobr></p>
-<a>注意：UDPパケットです</a>
+<a>備考: <Nobr id="protocol"></Nobr></a>
 <script type="text/javascript">
     var e = document.getElementById("analyze");
     var packet = document.getElementById("packet");
     var srcip = document.getElementById("srcip");
     var destip = document.getElementById("destip");
+    var protocol = document.getElementById("protocol");
     var ans = new Array(13);
     for(var i=0; i<13; i++){
         ans[i] = document.getElementById(i);
@@ -64,6 +65,22 @@
                 if(i<6)desttmp+=".";
             }
             destip.innerHTML=desttmp;
+
+
+            switch(ary[7]){
+                case '01':
+                    protocol.innerHTML="ICMPパケットです";
+                    break;
+                case '06':
+                    protocol.innerHTML="TCPパケットです";
+                    break;
+                case '17':
+                    protocol.innerHTML="UDPパケットです";
+                    break;
+                default ://未対応の場合
+                    protocol.innerHTML="未対応です";
+                    break;
+            }
 
 
 
