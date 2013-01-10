@@ -23,7 +23,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="34" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.2944251">
+            <state line="91" column="23" selection-start="2922" selection-end="2922" vertical-scroll-proportion="0.5557491">
               <folding />
             </state>
           </provider>
@@ -176,6 +176,13 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="34" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="82" column="13" selection-start="2738" selection-end="2738" vertical-scroll-proportion="0.0">
           <folding />
         </state>
@@ -197,7 +204,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="34" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.2944251">
+        <state line="91" column="23" selection-start="2922" selection-end="2922" vertical-scroll-proportion="0.5557491">
           <folding />
         </state>
       </provider>
