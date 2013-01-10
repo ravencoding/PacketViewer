@@ -19,14 +19,16 @@
 <p>TTL(8) => <Nobr id="6"></Nobr></p>
 <p>プロトコル番号(8) => <Nobr id="7"></Nobr></p>
 <p>ヘッダチェックサム(16) => <Nobr id="8"></Nobr></p>
-<p>送信元IPアドレス(32) => <Nobr id="9"></Nobr></p>
-<p>宛先IPアドレス(32) => <Nobr id="10"></Nobr></p>
+<p>送信元IPアドレス(32) => <Nobr id="9"></Nobr> => <Nobr id="srcip"></Nobr></p>
+<p>宛先IPアドレス(32) => <Nobr id="10"></Nobr> => <Nobr id="destip"></Nobr></p>
 <p>オプション(32 × n) => <Nobr id="11"></Nobr></p>
 <p>データ本体 => <Nobr id="12"></Nobr></p>
 <a>注意：UDPパケットです</a>
 <script type="text/javascript">
     var e = document.getElementById("analyze");
     var packet = document.getElementById("packet");
+    var srcip = document.getElementById("srcip");
+    var destip = document.getElementById("destip");
     var ans = new Array(13);
     for(var i=0; i<13; i++){
         ans[i] = document.getElementById(i);
@@ -43,13 +45,26 @@
 
             var update = 0;
             for(var i=0; i<rule.length; i++){
-                //alert(st);
-                ary[i] = st.substr(update.value, rule[i]);
+                ary[i] = st.substr(update, rule[i]);
                 update += rule[i];
-                //alert("aaaaaaaa");
                 console.log(ary[i]);
                 ans[i].innerHTML = ary[i];
             }
+
+            var srctmp="";
+            for(var i=0; i<8;i+=2){
+                srctmp += parseInt(ary[9].substr(i, 2), 16);//16進数=>10進数
+                if(i<6)srctmp+=".";
+            }
+            srcip.innerHTML=srctmp;
+
+            var desttmp="";
+            for(var i=0; i<8;i+=2){
+                desttmp+=parseInt(ary[10].substr(i, 2), 16);//16進数=>10進数
+                if(i<6)desttmp+=".";
+            }
+            destip.innerHTML=desttmp;
+
 
 
 
