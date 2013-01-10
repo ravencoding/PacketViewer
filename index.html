@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head xmlns="http://www.w3.org/1999/html">
+    <meta charset="utf-8">
+    <title>パケットビューア</title>
+</head>
+
+<body>
+<h1>パケットビューア</h1>
+<input type="text" id="packet" ></textarea>
+<button id="analyze"/>analyze!</button>
+<br />
+<br />
+<p>バージョン(4) => <Nobr id="0"></Nobr></p>
+<p>ヘッダ長(4) => <Nobr id="1"></Nobr></p>
+<p>サービスタイプ(8) => <Nobr id="2"></Nobr></p>
+<p>パケット長(5) => <Nobr id="3"></Nobr></p>
+<p>識別子(16) => <Nobr id="4"></Nobr></p>
+<p>フラグ(16) => <Nobr id="5"></Nobr></p>
+<p>TTL(8) => <Nobr id="6"></Nobr></p>
+<p>プロトコル番号(8) => <Nobr id="7"></Nobr></p>
+<p>ヘッダチェックサム(16) => <Nobr id="8"></Nobr></p>
+<p>送信元IPアドレス(32) => <Nobr id="9"></Nobr></p>
+<p>宛先IPアドレス(32) => <Nobr id="10"></Nobr></p>
+<p>オプション(32 × n) => <Nobr id="11"></Nobr></p>
+<p>データ本体 => <Nobr id="12"></Nobr></p>
+<a>注意：UDPパケットです</a>
+<script type="text/javascript">
+    var e = document.getElementById("analyze");
+    var packet = document.getElementById("packet");
+    var ans = new Array(13);
+    for(var i=0; i<13; i++){
+        ans[i] = document.getElementById(i);
+    }
+    //alert(ans[0]);
+
+
+    var ary = new Array(32*7);// = new int[32*7];
+    var rule = [1,1,2,4,4,4,2,2,4,8,8,8,8];//kihonNoRule
+    e.onclick = function(){
+        //alert(packet.value.length);
+        if(packet.value.length>=60){//KihonNoRUle
+            var st = packet.value;
+
+            var update = 0;
+            for(var i=0; i<rule.length; i++){
+                //alert(st);
+                ary[i] = st.substr(update.value, rule[i]);
+                update += rule[i];
+                //alert("aaaaaaaa");
+                console.log(ary[i]);
+                ans[i].innerHTML = ary[i];
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }else alert("NotPacket!");
+    }
+</script>
+
+</body>
+</html>
