@@ -10,20 +10,40 @@
 <button id="analyze"/>analyze!</button>
 <br />
 <br />
-<p>バージョン(4) => <Nobr id="0"></Nobr></p>
-<p>ヘッダ長(4) => <Nobr id="1"></Nobr></p>
-<p>サービスタイプ(8) => <Nobr id="2"></Nobr></p>
-<p>パケット長(5) => <Nobr id="3"></Nobr></p>
-<p>識別子(16) => <Nobr id="4"></Nobr></p>
-<p>フラグ(16) => <Nobr id="5"></Nobr></p>
-<p>TTL(8) => <Nobr id="6"></Nobr></p>
-<p>プロトコル番号(8) => <Nobr id="7"></Nobr></p>
-<p>ヘッダチェックサム(16) => <Nobr id="8"></Nobr></p>
-<p>送信元IPアドレス(32) => <Nobr id="9"></Nobr> => <Nobr id="srcip"></Nobr></p>
-<p>宛先IPアドレス(32) => <Nobr id="10"></Nobr> => <Nobr id="destip"></Nobr></p>
-<p>オプション(32 × n) => <Nobr id="11"></Nobr></p>
-<p>データ本体 => <Nobr id="12"></Nobr></p>
+<table width="80%" height="200" border="1">
+    <tr>
+        <th colspan="4">パケットビューワ</th>
+    </tr>
+    <tr>
+        <td>バージョン(4) => <Nobr id="0"></Nobr></td>
+        <td>ヘッダ長(4) => <Nobr id="1"></Nobr></td>
+        <td>サービスタイプ(8) => <Nobr id="2"></Nobr></td>
+        <td>パケット長(5) => <Nobr id="3"></Nobr></td>
+    </tr>
+    <tr>
+        <td colspan="2">識別子(16) => <Nobr id="4"></Nobr></td>
+        <td>フラグ(16) => <Nobr id="5"></Nobr></td>
+    </tr>
+    <tr>
+        <td>TTL(8) => <Nobr id="6"></Nobr></td>
+        <td>プロトコル番号(8) => <Nobr id="7"></Nobr></td>
+        <td colspan="2">ヘッダチェックサム(16) => <Nobr id="8"></Nobr></td>
+    </tr>
+    <tr>
+        <td colspan="4">送信元IPアドレス(32) => <Nobr id="9"></Nobr> => <Nobr id="srcip"></Nobr></td>
+    </tr>
+    <tr>
+        <td colspan="4">宛先IPアドレス(32) => <Nobr id="10"></Nobr> => <Nobr id="destip"></Nobr></td>
+    </tr>
+    <tr>
+        <td colspan="4">オプション(32 × n) => <Nobr id="11"></Nobr></td>
+    </tr>
+    <tr>
+        <td colspan="4">データ本体 => <Nobr id="12"></Nobr></td>
+    </tr>
+
 <a>備考: <Nobr id="protocol"></Nobr></a>
+</table>
 <script type="text/javascript">
     var e = document.getElementById("analyze");
     var packet = document.getElementById("packet");
@@ -51,6 +71,7 @@
                 console.log(ary[i]);
                 ans[i].innerHTML = ary[i];
             }
+            ans[12].innerHTML=st.substr(0,60)+"<br/>"+st.substring(60,120)+"<br/>"+st.substring(120,180)+"<br/>"+st.substring(180,st.length);
 
             var srctmp="";
             for(var i=0; i<8;i+=2){
